@@ -1,0 +1,35 @@
+function sortBy(arr: any[], fn: Function): any[] {
+  // const newArr = [...arr]
+  return arr.sort((a, b) => {
+    return fn(a) - fn(b)
+  })
+};
+
+// Example
+# Input: arr = [5, 4, 1, 2, 3], fn = (x) => x
+# Output: [1, 2, 3, 4, 5]
+# Explanation: fn simply returns the number passed to it so the array is sorted in ascending order.
+
+// Complexity:
+# Time complexity: O(NlogN), where NNN is the length of the input array. 
+# Space complexity: O(N), where NNN is the length of the input array.
+
+// Things I learnt:
+# 1. JavaScript's built-in Array.sort() method is used to sort the elements of an array in place. 
+# It is important to note that the sort operation directly modifies (mutates) the original array, rather than creating a new sorted array.
+
+# 2. The sort() method, by default, converts elements into strings and compares their sequences of UTF-16 code unit values to determine the sort order. 
+# This works for strings but can lead to unexpected results when sorting numbers or mixed data types. 
+
+# 3. Array.sort() allows us to pass a compare function to customize the sorting mechanism. The compare function should be a function that takes two arguments and returns a negative, zero, or positive value:
+# Negative Value: If the compare function returns a value less than zero, it sorts a to an index lower than b. In simple terms, a should come before b.
+# Positive Value: If the compare function returns a value greater than zero, it sorts a to an index higher than b. That is, a should come after b.
+# Zero: If the compare function returns 0, it leaves a and b unchanged with respect to each other. However, their order compared to other elements is sorted.
+# Example:
+# let numbers = [40, 1, 5, 200];
+# numbers.sort((a, b) => a - b);
+# console.log(numbers); // [1, 5, 40, 200]
+
+// Read more:
+# https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+# https://leetcode.com/problems/sort-by/editorial/?envType=study-plan-v2&envId=30-days-of-javascript
