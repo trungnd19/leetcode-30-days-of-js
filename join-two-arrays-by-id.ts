@@ -9,7 +9,7 @@ function join(arr1: any[], arr2: any[]): any[] {
   combinedArray.forEach((obj) => {
     const id = obj.id;
     if (!merged[id]) {
-      merged[id] = { ...obj };
+      merged[id] = { ...obj }; // 1: {"id": 1, "x": 2, "y": 3}
     } else {
       merged[id] = { ...merged[id], ...obj };
     }
